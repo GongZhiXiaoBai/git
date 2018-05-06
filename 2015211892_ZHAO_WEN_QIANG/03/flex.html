@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        #model {
+            margin: 0px auto;
+            width: 95%;
+            height: 500px;
+            border: 1px solid black;
+            display: flex;
+            padding: 20px;
+        }
+
+        #model>div {
+            border: 2px solid black;
+            height: 85%;
+            margin: 10px;
+            font-size: 40px;
+            padding-top: 30px;
+            padding-left: 1%;
+        }
+
+        #mo-left {
+            flex: 1;
+        }
+
+        #mo-middle {
+            width: 600px;
+        }
+
+        #mo-right {
+            flex: 2;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="model">
+        <div id="mo-left">
+            flex:1
+        </div>
+        <div id="mo-middle">
+            width: 600px
+        </div>
+        <div id="mo-right">
+            flex:2
+        </div>
+    </div>
+</body>
+
+</html>
