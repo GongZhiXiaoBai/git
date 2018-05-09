@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>调用</title>
+    <style>
+        div {
+            width: 30%;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <button onclick="checkuser()">点击显示车型</button>
+        <div id="msg">
+        </div>
+    </center>
+    <script type="text/javascript ">
+
+        // ajax部分
+        var xmlHttp;           
+                    function createxmlHttpRequest() { 
+                        if (window.ActiveXObject) { 
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP "); 
+                        } else if (window.XMLHttpRequest) { 
+                        xmlHttp = new XMLHttpRequest(); 
+                    }
+                  } 
+        
+                    function doGET(url,data){ 
+                      createxmlHttpRequest(); 
+                      var msg= document.getElementById("msg");
+                      xmlHttp.open("GET",url,true); 
+                    //   xmlHttp.setRequestHeader("Content-Type ","application/x-www-form-urlencoded ");
+                      xmlHttp.send(data);     
+                      xmlHttp.onreadystatechange = function() { 
+                          if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {                  
+                            var data=JSON.parse(xmlHttp.responseText);
+                            var output='';
+                            output+=`<span>车型: </span> ${data.cars} `;
+					msg.innerHTML=output;
+                          }
+                      } 
+                     
+                   }
+                    function checkuser(){
+                      var url="http://www.1ke.co/backend/teach/js/json.php ";
+                      data="username="+"sdad"+" &pwd="+"sdad"; 
+                      doGET(url,data); 
+                    } 
+        
+        
+        
+            </script>
+</body>
+
+</html>
