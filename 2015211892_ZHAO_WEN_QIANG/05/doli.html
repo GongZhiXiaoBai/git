@@ -152,6 +152,7 @@
         var a = 0;
         var b = 0;
         $("#todocount").html(a);
+        $("#donecount").html(b);
         var qq = '<li>' + '<input type="checkbox">' + '<a>';
         var ww = '</a>' + '<span class="spans">' + '</span>' + '</li>';
         var ee = '<li>' + '<input type="checkbox" checked="checked">' + '<a>';
@@ -163,6 +164,7 @@
                     $("ol").prepend(qq + e + ww);
                     a++;
                     $("#todocount").html(a);
+                    
                 }
             }
         });
