@@ -47,7 +47,6 @@
             flex: 1 0 auto;
             margin: 0px auto 0px;
             width: 60%;
-            /* border: 1px solid black; */
         }
 
         footer {
@@ -121,6 +120,13 @@
             margin-right: -20px;
             display: block;
         }
+        #clear{
+            position: absolute;
+            top:25px;
+            right:50px;
+            cursor: pointer;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -131,6 +137,7 @@
             <input type="text" id="task" name="task" placeholder="添加任务" required="required" autocomplete="off" />
             <input id="hiddenText" type="text" style="display:none" onkeypress="searchKeywordKeyboard(event)" />
         </form>
+        <span id="clear">全部清空</span>
     </header>
     <nav>
         <h2>正在进行
@@ -149,13 +156,30 @@
     </footer>
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
-        var a = 0;
-        var b = 0;
-        $("#todocount").html(a);
-        $("#donecount").html(b);
         var qq = '<li>' + '<input type="checkbox">' + '<a>';
         var ww = '</a>' + '<span class="spans">' + '</span>' + '</li>';
         var ee = '<li>' + '<input type="checkbox" checked="checked">' + '<a>';
+
+
+// 页面重现
+var DemoStorage = window.localStorage;
+var aa=DemoStorage["aa"];
+var bb=DemoStorage["bb"];
+var m=DemoStorage["hoa"];
+$("ol").html(m);
+var l=DemoStorage["hob"];
+$("ul").html(l);
+
+if(aa>0||bb>0){
+var a=aa;
+var b=bb;
+}
+else{
+var a=0;
+var b=0;}
+        $("#todocount").html(a);
+        $("#donecount").html(b);
+
         // 添加任务
         $("#task").keyup(function (event) {
             if (event.keyCode == 13) {
@@ -163,15 +187,40 @@
                 if (e != "") {
                     $("ol").prepend(qq + e + ww);
                     a++;
+                    DemoStorage.setItem("aa", a);
+
+            // 页面存储
                     $("#todocount").html(a);
-                    
+                    var hoa=$("ol").html();
+                DemoStorage.setItem("hoa", hoa); 
+                var hob=$("ul").html();
+                DemoStorage.setItem("hob", hob); 
                 }
             }
         });
 
         // 删除
-        $('ol').delegate('span', 'click', function () { $(this).parent().remove(); a--; $("#todocount").html(a); });
-        $('ul').delegate('span', 'click', function () { $(this).parent().remove(); b--; $("#donecount").html(b); });
+        $('ol').delegate('span', 'click', function () { $(this).parent().remove(); a--;
+ // 页面存储
+             var hoa=$("ol").html();
+            DemoStorage.setItem("hoa", hoa); 
+            var hob=$("ul").html();
+            DemoStorage.setItem("hob", hob); 
+            DemoStorage.setItem("aa", a);
+            $("#todocount").html(a); 
+        
+        });
+        $('ul').delegate('span', 'click', function () { $(this).parent().remove(); b--;
+  // 页面存储
+            var hoa=$("ol").html();
+            DemoStorage.setItem("hoa", hoa); 
+            var hob=$("ul").html();
+            DemoStorage.setItem("hob", hob);  
+            DemoStorage.setItem("bb", b);          
+            $("#donecount").html(b); 
+
+        
+        });
         //  未完成转完成
         $('ol').delegate('input', 'click', function () {
             var ht = $(this).next().html();
@@ -179,6 +228,15 @@
             $("ul").prepend(ee + ht + ww);
             a--;
             b++;
+
+// 页面存储
+            var hoa=$("ol").html();
+            DemoStorage.setItem("hoa", hoa); 
+            var hob=$("ul").html();
+            DemoStorage.setItem("hob", hob); 
+// 数量存储
+           DemoStorage.setItem("aa", a);
+            DemoStorage.setItem("bb", b);
             $("#todocount").html(a);
             $("#donecount").html(b);
         });
@@ -189,10 +247,20 @@
             $("ol").prepend(qq + ht + ww);
             a++;
             b--;
+            // 页面存储
+            var hoa=$("ol").html();
+            DemoStorage.setItem("hoa", hoa); 
+            var hob=$("ul").html();
+            DemoStorage.setItem("hob", hob); 
+            DemoStorage.setItem("aa", a);
+            DemoStorage.setItem("bb", b);
             $("#todocount").html(a);
             $("#donecount").html(b);
         });
+// 全清空
+$("#clear").click(function () {
+    DemoStorage.clear();
+});
     </script>
 </body>
-
 </html>
