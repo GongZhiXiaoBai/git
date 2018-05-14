@@ -187,14 +187,10 @@ var b=0;}
                 if (e != "") {
                     $("ol").prepend(qq + e + ww);
                     a++;
-                    DemoStorage.setItem("aa", a);
 
             // 页面存储
                     $("#todocount").html(a);
-                    var hoa=$("ol").html();
-                DemoStorage.setItem("hoa", hoa); 
-                var hob=$("ul").html();
-                DemoStorage.setItem("hob", hob); 
+                    cunchu();
                 }
             }
         });
@@ -202,21 +198,13 @@ var b=0;}
         // 删除
         $('ol').delegate('span', 'click', function () { $(this).parent().remove(); a--;
  // 页面存储
-             var hoa=$("ol").html();
-            DemoStorage.setItem("hoa", hoa); 
-            var hob=$("ul").html();
-            DemoStorage.setItem("hob", hob); 
-            DemoStorage.setItem("aa", a);
+                cunchu();
             $("#todocount").html(a); 
         
         });
         $('ul').delegate('span', 'click', function () { $(this).parent().remove(); b--;
   // 页面存储
-            var hoa=$("ol").html();
-            DemoStorage.setItem("hoa", hoa); 
-            var hob=$("ul").html();
-            DemoStorage.setItem("hob", hob);  
-            DemoStorage.setItem("bb", b);          
+             cunchu();       
             $("#donecount").html(b); 
 
         
@@ -229,14 +217,7 @@ var b=0;}
             a--;
             b++;
 
-// 页面存储
-            var hoa=$("ol").html();
-            DemoStorage.setItem("hoa", hoa); 
-            var hob=$("ul").html();
-            DemoStorage.setItem("hob", hob); 
-// 数量存储
-           DemoStorage.setItem("aa", a);
-            DemoStorage.setItem("bb", b);
+             cunchu();
             $("#todocount").html(a);
             $("#donecount").html(b);
         });
@@ -248,15 +229,24 @@ var b=0;}
             a++;
             b--;
             // 页面存储
-            var hoa=$("ol").html();
-            DemoStorage.setItem("hoa", hoa); 
-            var hob=$("ul").html();
-            DemoStorage.setItem("hob", hob); 
-            DemoStorage.setItem("aa", a);
-            DemoStorage.setItem("bb", b);
+            cunchu();
             $("#todocount").html(a);
             $("#donecount").html(b);
         });
+
+        function cunchu(){
+            // 存储html《li》页面数据
+           var hoa=$("ol").html();
+            DemoStorage.setItem("hoa", hoa); 
+            var hob=$("ul").html();
+            DemoStorage.setItem("hob", hob); 
+            // 存储<li>数量
+            DemoStorage.setItem("aa", a);
+            DemoStorage.setItem("bb", b);
+}
+
+
+
 // 全清空
 $("#clear").click(function () {
     DemoStorage.clear();
