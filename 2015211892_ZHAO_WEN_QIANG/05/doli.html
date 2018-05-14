@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务事宜整理</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: rgba(226, 220, 220, 0.822);
+        }
+
+        header {
+            background: #252526;
+            height: 50px;
+            padding-top: 6px;
+            flex: 0 0 auto;
+        }
+
+        header a {
+            font-size: 28px;
+            color: white;
+            margin-left: 20%;
+        }
+
+        header input {
+            text-indent: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24), 0 1px 6px rgba(0, 0, 0, 0.45) inset;
+            border: none;
+            width: 30%;
+            height: 35px;
+            float: right;
+            margin-top: 4px;
+            margin-right: 20%;
+        }
+
+        nav {
+            flex: 1 0 auto;
+            margin: 0px auto 0px;
+            width: 60%;
+            /* border: 1px solid black; */
+        }
+
+        footer {
+            height: 60px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            color: rgba(247, 235, 235);
+            background: rgba(31, 2, 2, 0.6);
+            flex: 0 0 auto;
+        }
+
+        h2 {
+            position: relative;
+        }
+
+        #todocount,
+        #donecount {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            display: inline-block;
+            padding: 0 5px;
+            height: 20px;
+            border-radius: 20px;
+            background: #E6E6FA;
+            line-height: 22px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        ol,
+        ul {
+            padding: 0px;
+            list-style: none;
+        }
+
+        ol li {
+            height: 32px;
+            line-height: 32px;
+            background: #fff;
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 45px;
+            border-radius: 3px;
+            border-left: 5px solid #629A9C;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        }
+
+        ul li {
+            height: 32px;
+            line-height: 32px;
+            background: rgb(245, 233, 233);
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 45px;
+            border-radius: 3px;
+            border-left: 5px solid #629A9C;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        }
+
+        li span {
+            float: right;
+            background: url(sc.jpg) no-repeat;
+            background-size: 100% 100%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-top: 4px;
+            margin-right: -20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <form id="muform">
+            <a>任务事宜</a>
+            <input type="text" id="task" name="task" placeholder="添加任务" required="required" autocomplete="off" />
+            <input id="hiddenText" type="text" style="display:none" onkeypress="searchKeywordKeyboard(event)" />
+        </form>
+    </header>
+    <nav>
+        <h2>正在进行
+            <span id="todocount"></span>
+        </h2>
+        <ol id="todolist">
+        </ol>
+        <h2>已经完成
+            <span id="donecount"></span>
+        </h2>
+        <ul id="donelist">
+        </ul>
+    </nav>
+    <footer>
+        <p>Copyright © 2017 GongZhiXiaoBai All rights reserved </p>
+    </footer>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var a = 0;
+        var b = 0;
+        $("#todocount").html(a);
+        var qq = '<li>' + '<input type="checkbox">' + '<a>';
+        var ww = '</a>' + '<span class="spans">' + '</span>' + '</li>';
+        var ee = '<li>' + '<input type="checkbox" checked="checked">' + '<a>';
+        // 添加任务
+        $("#task").keyup(function (event) {
+            if (event.keyCode == 13) {
+                var e = $("#task").val();
+                if (e != "") {
+                    $("ol").prepend(qq + e + ww);
+                    a++;
+                    $("#todocount").html(a);
+                }
+            }
+        });
+
+        // 删除
+        $('ol').delegate('span', 'click', function () { $(this).parent().remove(); a--; $("#todocount").html(a); });
+        $('ul').delegate('span', 'click', function () { $(this).parent().remove(); b--; $("#donecount").html(b); });
+        //  未完成转完成
+        $('ol').delegate('input', 'click', function () {
+            var ht = $(this).next().html();
+            $(this).parent().remove();
+            $("ul").prepend(ee + ht + ww);
+            a--;
+            b++;
+            $("#todocount").html(a);
+            $("#donecount").html(b);
+        });
+        //  完成转未完成
+        $('ul').delegate('input', 'click', function () {
+            var ht = $(this).next().html();
+            $(this).parent().remove();
+            $("ol").prepend(qq + ht + ww);
+            a++;
+            b--;
+            $("#todocount").html(a);
+            $("#donecount").html(b);
+        });
+    </script>
+</body>
+
+</html>

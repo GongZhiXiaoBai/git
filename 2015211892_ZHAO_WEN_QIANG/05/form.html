@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style>
+    .prompt{
+        color:gray;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }  
+    .show{
+             	border:1px solid #000;
+             	background:yellow;
+             	color:black;
+             }  
+     </style>
+</head>
+<body>
+    <!-- html本地服务器 -->
+            <form  name="myform" action="" method="post" onsubmit="return CheckPost();">
+                <fieldset>
+                        <legend>信息注册</legend>
+        用户名：<input type="text" name="username" onBlur="checkuser()" id="username"><br><a class="prompt" id="prompt_1" ></a><br>
+        邀请码：<input type="password" name="pwd" id="pwd"/><br>
+        &nbsp;性&nbsp;&nbsp;别：
+        <input type="radio" name="sex" value="男" id="sex">男
+        <input type="radio" name="sex" value="女" id="sex">女<br>
+        &nbsp;爱&nbsp;&nbsp;好：
+        <input type="checkbox" name="vehicle[]" id="affect1" value="篮球">篮球
+        <input type="checkbox" name="vehicle[]" id="affect2" value="乒乓球">乒乓球
+        <input type="checkbox" name="vehicle[]" id="affect3" value="台球">台球
+        <input type="checkbox" name="vehicle[]" id="affect4" value="足球">足球<br>
+        &nbsp;学&nbsp;&nbsp;位：
+        <select name="degree" id="degree">
+                <option value="本科" selected="selected">本科</option>
+                <option value="大专">大专</option>
+                <option value="研究生">研究生</option>
+                <option value="其他">其他</option>
+                </select><br>
+                &nbsp;备&nbsp;&nbsp;注：<br>
+                <textarea name="bz" rows="10" cols="30" id="bz">
+                
+                        </textarea><br>
+        <input type="submit" value="登录"/>
+        <input type="button" onclick="look()" value="信息预览" />
+        <input type="reset" value="重填">
+        </fieldset>  
+        </form>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+
+                var url = "http://www.1ke.co/backend/teach/js/checkuser_post.php";
+  
+            // ajax部分 post请求  
+            function checkuser() {  
+                $.post(url, { "username":myform.username.value, "pwd": myform.pwd.value }, function (data) {  
+                   $("#prompt_1").html(data);
+                   $("#prompt_1").addClass("show");
+                });  }
+             
+
+
+                function CheckPost() {
+                    //这里写一些基本的验证代码
+                    if ($("#username").val()== "") {
+                        alert("请输入用户名！");
+                        myform.username.focus();
+                        return false;
+                    }
+                    else if ($("#pwd").val() == "") {
+                        alert("请输入邀请码！");
+                        myform.pwd.focus();
+                        return false;
+                    }
+                    else if ($("#tsex").val() == "") {
+                        alert("请选择性别！");
+                        return false;
+                    }
+
+                    return true;
+
+                }
+            </script>
+                <script>
+                    // 输出页面
+                    function look() {
+                        var username = $("#username").val();
+                        var pwd = $("#pwd").val();
+                        var sex =$("#sex").val();
+                        var bz =$("#bz").val();
+                        var degree =$("#degree").val().value;
+                        var id = "";
+                        var affect = "";
+                        for (var i = 1; i <= 4; i++) {
+                            id = "affect" + i;
+                            if (document.getElementById(id).checked == true)
+                                affect += document.getElementById(id).value + ",";
+                        }
+
+
+                        document.write("个人信息："); document.write('<br />');
+                        document.write("用户名：" + username); document.write('<br />');
+                        document.write("邀请码：" + pwd); document.write('<br />');
+                        document.write("性别：" + sex); document.write('<br />');
+                        document.write("爱好：" + affect); document.write('<br />');
+                        document.write("学位：" + degree); document.write('<br />');
+                        document.write("备注：" + bz); document.write('<br />');
+                    } 
+                </script>
+                </body>
+                
+                </html>
