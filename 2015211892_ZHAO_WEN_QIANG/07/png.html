@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/canvas2image.js"></script>
+    <script src="js/jquery.base64.js"></script>
+</head>
+<body>
+    <div id="view" style="background:url(img/tx.jpg) no-repeat; width: 300px; height: 300px;background-size:100% 100%">
+        <a>文字，非图片</a>
+    </div>
+    画布
+    <div id="qq"></div>
+    <div id="ww"></div>
+    <script type="text/javascript">
+    var pic;
+    var canvas2 = document.createElement("canvas");
+    let _canvas = document.querySelector('#view');
+    var w = parseInt(window.getComputedStyle(_canvas).width);
+    var h = parseInt(window.getComputedStyle(_canvas).height);
+    //将canvas画布放大若干倍，然后盛放在较小的容器内，就显得不模糊了
+    canvas2.width = w * 2;
+    canvas2.height = h * 2;
+    canvas2.style.width = w + "px";
+    canvas2.style.height = h + "px";
+    //可以按照自己的需求，对context的参数修改,translate指的是偏移量   
+    var context = canvas2.getContext("2d");
+    context.scale(2,2);
+    // document.getElementById("qq").appendChild(canvas2);
+     html2canvas(document.querySelector('#view'),{canvas:canvas2}).then(function(canvas) {    
+
+        document.getElementById("qq").appendChild(canvas2);
+        var oImgPNG = Canvas2Image.saveAsPNG(canvas2, true);
+                  $("#ww").append(oImgPNG);
+        //           $("#ww").append("qweqw");
+
+           
+     });
+      
+     $("#ww").appendChild(Canvas2Image.saveAsImage(canvas2));
+           // var can = document.getElementsByName("canvas")[0];
+
+        </script>
+</body>
+
+</html>
