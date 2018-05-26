@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务事宜整理</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        #all {
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            background: rgba(226, 220, 220, 0.822);
+        }
+
+        header {
+            background: #252526;
+            height: 50px;
+            padding-top: 6px;
+            flex: 0 0 auto;
+        }
+
+        header a {
+            font-size: 28px;
+            color: white;
+            margin-left: 20%;
+        }
+
+        header input {
+            text-indent: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24), 0 1px 6px rgba(0, 0, 0, 0.45) inset;
+            border: none;
+            width: 30%;
+            height: 35px;
+            float: right;
+            margin-top: 4px;
+            margin-right: 20%;
+        }
+
+        nav {
+            flex: 1 0 auto;
+            margin: 0px auto 0px;
+            width: 60%;
+        }
+
+        footer {
+            height: 60px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            color: rgba(247, 235, 235);
+            background: rgba(31, 2, 2, 0.6);
+            flex: 0 0 auto;
+        }
+
+        h2 {
+            position: relative;
+        }
+
+        #todocount,
+        #donecount {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            display: inline-block;
+            padding: 0 5px;
+            height: 20px;
+            border-radius: 20px;
+            background: #E6E6FA;
+            line-height: 22px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+#aa,#ab{
+            display: block;
+            margin-left: 100px;
+        } 
+        ol,
+        ul {
+            padding: 0px;
+            list-style: none;
+        }
+
+        ol li {
+            height: 32px;
+            line-height: 32px;
+            background: #fff;
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 45px;
+            border-radius: 3px;
+            border-left: 5px solid #629A9C;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        }
+
+        ul li {
+            height: 32px;
+            line-height: 32px;
+            background: rgb(245, 233, 233);
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 45px;
+            border-radius: 3px;
+            border-left: 5px solid #629A9C;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        }
+
+        li span {
+            float: right;
+            background: url(sc.jpg) no-repeat;
+            background-size: 100% 100%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-top: -27px;
+            margin-right: -20px;
+            display: block;
+        }
+        li .che {
+            float: left;
+            background: url(img/01.png) no-repeat;
+            background-size: 100% 100%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-top: 4px;
+            display: block;
+        }
+        li .chel {
+            float: left;
+            background: url(img/02.png) no-repeat;
+            background-size: 100% 100%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-top: 4px;
+            display: block;
+        }
+        #clear{
+            position: absolute;
+            top:25px;
+            right:50px;
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+        <div id="all">
+    <header>
+        <form role="form">
+            <a>任务事宜</a>
+            <input type="text" id="task" name="task" placeholder="添加任务" required="required" autocomplete="off" v-model="task"  v-on:keyup="show($event)"/>
+            <input id="hiddenText" type="text" style="display:none" onkeypress="searchKeywordKeyboard(event)" />
+        </form>
+    </header>
+    <nav id="navv">
+        <h2>正在进行
+            <span id="todocount">{{ renwu.length }}</span>
+        </h2>
+        <ol id="todolist">
+            <li v-for="item,index in renwu"><span class="che" v-on:click="ad(item.task,index)"></span><a id="aa">{{ item.task }}</a><span class="spans" v-on:click="del(index)"></span></li>
+        </ol>
+        <h2>已经完成
+            <span id="donecount">{{ wanc.length }}</span>
+        </h2>
+        <ul id="donelist">
+           <li v-for="item,index in wanc"><span class="chel" v-on:click="add(item.tasd,index)"></span><a id="ab">{{ item.tasd }}</a><span class="spans" v-on:click="dell(index)"></span></li>
+        </ul>
+    </nav>
+    <footer>
+        <p>Copyright © 2017 GongZhiXiaoBai All rights reserved </p>
+    </footer>
+</div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript">
+//调用localstarge函数
+var STORAGE_KEY = 'renwu'//名称
+var todoStorage = {
+  fetch: function () {
+    var renwu = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    return renwu
+  }
+}
+var STORAGE_KE = 'wanc'//名称
+var todo = {
+  fetch: function () {
+    var wanc = JSON.parse(localStorage.getItem(STORAGE_KE) || '[]')
+    return wanc
+  }
+}
+var app7= new Vue({
+  el: '#all',
+  data: {
+    renwu:todoStorage.fetch(),
+    wanc:todo.fetch(),
+    task:""
+  },             
+   methods:{  
+
+
+show:function(ev){  
+     if(ev.keyCode == 13){  
+         if(ev!=""){
+         this.renwu.push({
+             task:this.task
+         });
+         task:this.task=""}
+  }
+},
+fetch: function () {
+    var renwu = JSON.parse(localStorage.getItem("renwu") || '[]');
+    var wanc = JSON.parse(localStorage.getItem("wanc") || '[]');
+    return renwu;
+    return wanc;
+    },
+del:function(n1){  
+    this.renwu.splice(n1,1);
+},
+dell:function(n2){  
+    this.wanc.splice(n2,1);
+},
+ad:function(n3,n5){  
+    // alert(n3);
+    this.renwu.splice(n5,1);
+    this.wanc.push({
+             tasd:n3
+         });
+},
+add:function(n4,n6){ 
+    this.wanc.splice(n6,1);  
+    this.renwu.push({
+             task:n4
+         });
+},
+
+},
+watch:{
+    // 存储
+    renwu:{
+        handler:function(){
+            if(window.localStorage){
+                localStorage.setItem("renwu",JSON.stringify(this.renwu));
+            }else{
+                Cookie.write("menuTitle",this.renwu);
+            }
+        },deep:true
+    },
+    wanc:{
+        handler:function(){
+            if(window.localStorage){
+                localStorage.setItem("wanc",JSON.stringify(this.wanc));
+            }else{
+                Cookie.write("menuTitle",this.wanc);
+            }
+        },deep:true
+    }
+}
+})
+
+$("#clear").click(function () {
+    DemoStorage.clear();
+});
+    </script>
+</body>
+</html>
