@@ -141,7 +141,7 @@
             var se = myDate.getSeconds();
             if (h > 12)
                 h = h - 12;
-            var s = h * 30 + 0.0017 * se - 90;
+            var s = h * 30 + 0.500 * m + 0.0017 * se - 90;
             var f = m * 6 + 0.100 * se - 90;
             var se = se * 6 - 90;
             $("#img1").css("transform", "rotate(" + s + "deg)");
