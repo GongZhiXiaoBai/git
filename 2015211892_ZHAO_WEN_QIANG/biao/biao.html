@@ -135,7 +135,7 @@ var myDate = new Date();
  var year=myDate.getFullYear();; 
 var month=myDate.getMonth()+1; 
 var date=myDate.getDate(); 
-var day=myDate.getDay()+1;
+var day=myDate.getDay();
 var h=myDate.getHours(); 
 var m=myDate.getMinutes(); 
 var se=myDate.getSeconds();
@@ -157,7 +157,7 @@ else if(day==5){
 else if(day==6){
     day="星期六";
 }
-else if(day==7){
+else if(day==0){
     day="星期日";
 }
 if(h>12){
