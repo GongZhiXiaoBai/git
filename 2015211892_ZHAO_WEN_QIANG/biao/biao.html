@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>指针表盘</title>
+</head>
+<style>
+    @media only screen and (max-width:950px){
+        #box{
+    position: relative;
+    margin: 50px auto;
+    width: 100%!important;
+    height: 0;
+    padding-bottom: 100%!important;
+}#num{
+
+        font-size:4.5vw!important;
+}
+#shi,#tiao,#fen{
+    font-size:6vw!important;
+    font-weight: 800!important;
+}
+    }
+    @font-face {
+  font-family: 'digifaw';   /*字体名称*/
+  src: local("digifaw"),url('digifaw.ttf');       /*字体源文件*/
+  font-weight: normal;
+    font-style: normal;
+}
+#box{
+    position: relative;
+    margin: 50px auto;
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
+}
+#main1{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    /* border:1px solid black; */
+    width: 100%;
+    height: 100%;
+}
+#main{
+    background: url(img/bp.jpg) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* border:1px solid black; */
+}
+#img1{
+position: absolute;
+top:45.2%;
+left:47.2%;
+width: 30%;
+height: 10%;
+transform-origin:9.3% 48%;
+}
+#img2{
+position: absolute;
+width: 36%;
+height: 8%;
+top:46%;
+left:47.4%;
+transform-origin:7.2% 50%;
+}
+#img3{
+position: absolute;
+width: 54%;
+height:10%;
+top:45.6%;
+left:35%;
+transform-origin:27.5% 44%;
+}
+#num{
+    width: 50%;
+    height: 15%;
+    text-align: center;
+    margin-left:25%; 
+    border: 1px solid black; 
+    color: black;
+    font-size:2.2vw;
+    font-family: digifaw;
+}
+#tiao{
+    visibility:visible;
+}
+#shi,#tiao,#fen{
+    font-size:3vw;
+    font-weight: 800;
+}
+</style>
+<body>
+<div id="box">
+    <div id="main1">
+        <div id="num">
+            <span id="ri">2018-5-29  星期二</span>
+            <span id="ap">AM</span>
+            <span id="shi">8</span>
+            <span id="tiao">:</span>
+            <span id="fen">14</span>
+        </div>
+        <div id="main">
+            <img id="img1" src="img/s.png">
+            <img id="img2" src="img/f.png">
+            <img id="img3" src="img/m.png">
+        </div>
+    </div>
+</div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function time(){
+            var myDate = new Date();
+var month=myDate.getMonth()+1; 
+var date=myDate.getDay()+1; 
+var h=myDate.getHours(); 
+var m=myDate.getMinutes(); 
+var se=myDate.getSeconds(); 
+if(h>12)
+h=h-12;
+var s=h*30+0.0017*se-90;
+var f=m*6+0.100*se-90;
+var se=se*6-90;
+$("#img1").css("transform","rotate("+s+"deg)");
+$("#img2").css("transform","rotate("+f+"deg)");
+$("#img3").css("transform","rotate("+se+"deg)");
+        }
+function date(){
+    
+var myDate = new Date();
+ var year=myDate.getFullYear();; 
+var month=myDate.getMonth()+1; 
+var date=myDate.getDate(); 
+var day=myDate.getDay()+1;
+var h=myDate.getHours(); 
+var m=myDate.getMinutes(); 
+var se=myDate.getSeconds();
+if(day==1){
+    day="星期一";
+}
+else if(day==2){
+    day="星期二";
+}
+else if(day==3){
+    day="星期三";
+}
+else if(day==4){
+    day="星期四";
+}
+else if(day==5){
+    day="星期五";
+}
+else if(day==6){
+    day="星期六";
+}
+else if(day==7){
+    day="星期日";
+}
+if(h>12){
+    h=h-12;
+    $("#ap").html("PM");
+}
+else
+$("#ap").html("AM");
+if(m<10){
+    m="0"+m;
+}
+var ri=year+"-"+month+"-"+date+"   "+day;
+$("#ri").html(ri);
+$("#shi").html(h);
+$("#fen").html(m);
+}
+var t=1;
+function tiao(){
+    if(t==1){
+ $("#tiao").css("visibility","hidden");
+t=0;
+}
+else{
+    $("#tiao").css("visibility","visible");
+t=1;
+}
+}
+        setInterval(function(){  tiao();},500);
+        setInterval(function(){  date();},1000);
+        setInterval(function(){   time();},1000);
+    </script>
+</body>
+</html>
