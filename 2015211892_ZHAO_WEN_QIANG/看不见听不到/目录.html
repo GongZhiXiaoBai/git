@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>目录</title>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+      html,body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .title {
+        width: 100%;
+        text-align: center;
+        height: 7vw;
+        font-size: 4vw;
+        line-height: 7vw;
+      }
+      .mess {
+        display: flex;
+        /* align-items: center; */
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      img {
+        width: 70%;
+        display: block;
+        margin: 0px auto;
+        /* border: 1px solid brown; */
+      }
+      span {
+        width: 80%;
+        display: block;
+        margin: 0px auto;
+        font-size: 3vw;
+        /* border: 1px solid brown; */
+        line-height: 5vw;
+      }
+      #items {
+        width: 100%;
+        margin: 0px auto;
+        padding-top: 2%;
+        padding-left: 8%;
+      }
+      #items .item {
+        float: left;
+        width: 15%;
+        height: 5vw;
+        margin: 5px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid #333;
+        border-radius: 5px;
+        font-size: 3vw;
+        line-height: 4vw;
+      }
+  </style>
+</head>
+<body>
+  <div class="title">看不见听不到的爱情</div>
+  <img src="./kt/fm.jpg" alt="封面">
+  <span>&#12288;每个人都渴望一份爱情，而这段故事则讲述了一段美好的爱情，但是故事的主人公，一个听不到，一个看不到，那么他们的爱情如何展开呢...</span>
+  <div id="items">
+    <!-- <div class="item">第0话</div>
+    <div class="item">第1话</div>
+    <div class="item">第2话</div>
+    <div class="item">第3话</div>
+    <div class="item">第4话</div>
+    <div class="item">第5话</div>
+    <div class="item">第6话</div> -->
+  </div>
+<script>
+var str="";
+for(var i=0;i<30;i++){
+  str+=`<div class="item" data-page="${i}">第${i}话</div>`
+  // str+=`<img src='./kt/kt01_${i}.jpg' onerror="${"this.src='./kt/kong.png'"}" />`
+}
+$("#items").append(str);
+$('#items .item').click(function(e){
+var ids = $(this).data("page");
+console.log(ids)
+window.location.href = `./看不见听不到的爱情.html?page=${ids}`;
+});
+
+// var appid = $("#myDiv").data("appid");
+</script>
+</body>
+</html>
