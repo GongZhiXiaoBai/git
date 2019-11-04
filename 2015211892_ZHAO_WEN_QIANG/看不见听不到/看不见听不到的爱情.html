@@ -99,22 +99,15 @@
       var x = document.getElementsByTagName("img");
       var lengths = 0;
       for (var i = 0; i < x.length; i++) {
-        console.log('xunhaun', i)
+        // console.log('xunhaun', i)
         if (x[i].height < 200) {
-          console.log(i)
+          // console.log(i)
           lengths = i;
           break;
         }
       }
       for (var i = lengths; i < 499; i++) {
-        console.log(i,lengths)
         x[lengths].remove();
-        // try {
-        // }
-        // catch(err) {
-        //   console.log(err)
-        //   console.error('zhi',i)
-        // }
       }
 
     }
