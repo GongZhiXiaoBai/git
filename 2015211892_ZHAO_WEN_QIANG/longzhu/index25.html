@@ -27,7 +27,7 @@ let nums = 10;
 for(var i=0;i<10;i++){
   str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
 }
-$("#items").append(str);
+$("#items").append(str);str="";
 
 $("#before").click(function(){
   // $("#items").html("");
@@ -37,7 +37,7 @@ $("#before").click(function(){
   for(var i=nums;i<nums+10;i++){
     str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
   }
-  $("#items").html(str);
+  $("#items").html(str);str="";
   }
 });
 $("#after").click(function(){
@@ -47,7 +47,7 @@ $("#after").click(function(){
   for(var i=nums;i<nums+10;i++){
     str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
   }
-  $("#items").html(str);
+  $("#items").html(str);str="";
   nums = nums+10;
   }
 });
