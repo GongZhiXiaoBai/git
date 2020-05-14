@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="items">
+  </div>
+<div style="width:100%;display: flex;justify-content: space-between;">
+  <div id="before" style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">《《</div>
+  <div id="after" style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">》》</div>
+</div>
+  <script>
+    let juan = '01';
+
+    var num = ['01_001-88SjF.jpg','01_002-LWQWO.jpg','01_003-f44ZZ.jpg','01_004-LJHCh.jpg','01_005-SDGHH.jpg','01_006-gJKpp.jpg','01_007-peLlD.jpg','01_008-yO9o6.jpg','01_009-3Cv5Y.jpg','01_010-0D4gm.jpg','01_011-8hIuD.jpg','01_012-uRrsW.jpg','01_013-Zf6Lp.jpg','01_014-dfoxN.jpg','01_015-b01gF.jpg','01_016-xQmg7.jpg','01_017-le6dS.jpg','01_018-NZD0O.jpg','01_019-oG53Y.jpg','01_020-SLbIf.jpg','01_021-VDBqF.jpg','01_022-DZQNI.jpg','01_023-mWgCS.jpg','01_024-hRPEG.jpg','01_025-ioPr2.jpg','01_026-1mxfT.jpg','01_027-aFpGg.jpg','01_028-C0ULw.jpg','01_029-lfDrv.jpg','01_030-vkSCN.jpg','01_031-V5atA.jpg','01_032-QBRXA.jpg','01_033-vKgQr.jpg','01_034-W4Jiu.jpg','01_035-qJ1ba.jpg','01_036-UmgX1.jpg','01_037-Auob9.jpg','01_038-8970c.jpg','01_039-dNPrk.jpg','01_040-EsUjh.jpg','01_041-YAqjI.jpg','01_042-HTxGV.jpg','01_043-jT8GY.jpg','01_044-G3bwE.jpg','01_045-UlsNf.jpg','01_046-VaxLD.jpg','01_047-6F9EO.jpg','01_048-cSvwU.jpg','01_049-aP1f4.jpg','01_050-8Wend.jpg','01_051-gYWsS.jpg','01_052-A0VJ9.jpg','01_053-GaOgb.jpg','01_054-Tg0kp.jpg','01_055-6vBBP.jpg','01_056-zGaTj.jpg','01_057-N5BIa.jpg','01_058-jpB1r.jpg','01_059-ZKY4e.jpg','01_060-JDjWX.jpg','01_061-SA4H1.jpg','01_062-4ZWHB.jpg','01_063-dPepf.jpg','01_064-e8bob.jpg','01_065-qc3JO.jpg','01_066-qU9eG.jpg','01_067-9WjR8.jpg','01_068-IaTo4.jpg','01_069-kNCzf.jpg','01_070-A1XlQ.jpg','01_071-rs5I5.jpg','01_072-CoPfw.jpg','01_073-qtLrO.jpg','01_074-0kHZX.jpg','01_075-0OF5K.jpg','01_076-IcKQX.jpg','01_077-Jz2zw.jpg','01_078-MN8OT.jpg','01_079-1fnxe.jpg','01_080-E3j2d.jpg','01_081-DrOIl.jpg','01_082-mrk2Q.jpg','01_083-IYEdr.jpg','01_084-ZuWw6.jpg','01_085-9Je1s.jpg','01_086-Sxl97.jpg','01_087-YFqLs.jpg','01_088-nnuXS.jpg','01_089-w2bSY.jpg','01_090-3N5Vv.jpg','01_091-aWUwj.jpg','01_092-4Iimu.jpg','01_093-bgDmr.jpg','01_094-8CCLm.jpg','01_095-OIwhT.jpg','01_096-FuYyA.jpg','01_097-t4bkA.jpg','01_098-nsVqq.jpg','01_099-NDFzq.jpg','01_100-wVuxl.jpg','01_101-uopAH.jpg','01_102-iyvsN.jpg','01_103-Yc1XC.jpg','01_104-X5Zdu.jpg','01_105-w69wA.jpg','01_106-U1KO5.jpg','01_107-z7p3r.jpg','01_108-6k2tH.jpg','01_109-5pEW6.jpg','01_110-hCIOz.jpg','01_111-Y7IpJ.jpg','01_112-0RbW0.jpg','01_113-NoCGU.jpg','01_114-fuOti.jpg','01_115-v7wIx.jpg','01_116-eYqnF.jpg','01_117-4iUwS.jpg','01_118-fvzoM.jpg','01_119-wbHcH.jpg','01_120-Ritm6.jpg','01_121-jy8oo.jpg','01_122-BTU51.jpg','01_123-HtFT4.jpg','01_124-QyMTT.jpg','01_125-0BrzC.jpg','01_126-ZR8kG.jpg','01_127-iiO5m.jpg','01_128-ddvMc.jpg','01_129-EuqqQ.jpg','01_130-BivyR.jpg','01_131-wIt5H.jpg','01_132-NP3j8.jpg','01_133-cnMB5.jpg','01_134-rOW3l.jpg','01_135-Da1Yw.jpg','01_136-YLcis.jpg','01_137-mJ0uA.jpg','01_138-FDWhZ.jpg','01_139-caCzc.jpg','01_140-3ZrG3.jpg','01_141-SAIQK.jpg','01_142-WYJBV.jpg','01_143-4Y8iB.jpg','01_144-LYOTq.jpg','01_145-85T7b.jpg','01_146-ibbw9.jpg','01_147-Ic4Fz.jpg','01_148-C75pp.jpg','01_149-r3rdM.jpg','01_150-g5fR0.jpg','01_151-t4iqL.jpg','01_152-ws5hk.jpg','01_153-sUh9x.jpg','01_154-BBe7S.jpg','01_155-ZSlp7.jpg','01_156-fTCli.jpg','01_157-MIaCk.jpg','01_158-SL7wu.jpg','01_159-OKePh.jpg','01_160-P6nyp.jpg','01_161-r3YbN.jpg','01_162-i40M6.jpg','01_163-RSPt9.jpg','01_164-bx3sH.jpg','01_165-hAVB0.jpg','01_166-MHMy0.jpg','01_167-sDV7G.jpg','01_168-WMy9m.jpg','01_169-qH9E1.jpg','01_170-MnfUk.jpg','01_171-sKJZ8.jpg','01_172-q6oFb.jpg','01_173-C2Ipe.jpg','01_174-i2Ybw.jpg','01_175-X21cP.jpg','01_176-khGDd.jpg','01_177-6mroK.jpg','01_178-KeCA3.jpg','01_179-hUYuy.jpg','01_180-45c1c.jpg','01_181-p22D0.jpg','01_182-C7R3f.jpg','01_183-4oxzJ.jpg','01_184-Q82T3.jpg','01_185-dYkUN.jpg','01_186-rtOw2.jpg']
+
+  
+var str="";
+let nums = 10;
+for(var i=0;i<10;i++){
+  str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
+}
+$("#items").append(str);
+
+$("#before").click(function(){
+  // $("#items").html("");
+  console.log(nums)
+  if(nums>10) {
+  nums = nums-20;
+  for(var i=nums;i<nums+10;i++){
+    str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
+  }
+  $("#items").html(str);
+  }
+});
+$("#after").click(function(){
+  // $("#items").html("");
+  console.log(nums)
+  if(nums<num.length) {
+  for(var i=nums;i<nums+10;i++){
+    str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
+  }
+  $("#items").html(str);
+  nums = nums+10;
+  }
+});
+  </script>
+</body>
+</html>

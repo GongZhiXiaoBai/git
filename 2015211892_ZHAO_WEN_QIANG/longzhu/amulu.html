@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>目录</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+      html,body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .title {
+        width: 100%;
+        text-align: center;
+        height: 7vw;
+        font-size: 4vw;
+        line-height: 7vw;
+      }
+      .mess {
+        display: flex;
+        /* align-items: center; */
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      img {
+        width: 70%;
+        display: block;
+        margin: 0px auto;
+        /* border: 1px solid brown; */
+      }
+      span {
+        width: 80%;
+        display: block;
+        margin: 0px auto;
+        font-size: 3vw;
+        /* border: 1px solid brown; */
+        line-height: 5vw;
+      }
+      #items {
+        width: 100%;
+        margin: 0px auto;
+        padding-top: 2%;
+        padding-left: 8%;
+      }
+      #items .item {
+        float: left;
+        width: 15%;
+        height: 5vw;
+        margin: 5px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid #333;
+        border-radius: 5px;
+        font-size: 3vw;
+        line-height: 4vw;
+      }
+  </style>
+</head>
+<body>
+  <div id="items">
+  </div>
+<script>
+var str="";
+for(var i=0;i<42;i++){
+  str+=`<div class="item" data-page="${i}">第${i}卷</div>`
+}
+$("#items").append(str);
+$('#items .item').click(function(e){
+var ids = $(this).data("page");
+console.log(ids)
+window.location.href = `./index${ids}.html`;
+});
+
+</script>
+</body>
+</html>

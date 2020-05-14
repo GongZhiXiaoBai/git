@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="items">
+  </div>
+<div style="width:100%;display: flex;justify-content: space-between;">
+  <div id="before" style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">《《</div>
+  <div id="after" style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">》》</div>
+</div>
+  <script>
+    let juan = '04';
+
+    var num = ['04_001-D6p0l.jpg','04_002-hk3Bz.jpg','04_003-YqTsF.jpg','04_004-zkw9e.jpg','04_005-0ri1J.jpg','04_006-Cdeyz.jpg','04_007-KV1r5.jpg','04_008-LPj8l.jpg','04_009-O8mFV.jpg','04_010-ihbjN.jpg','04_011-eFGE6.jpg','04_012-w1iEt.jpg','04_013-fDQx9.jpg','04_014-FSE45.jpg','04_015-7XiCH.jpg','04_016-WHFf8.jpg','04_017-46Gkl.jpg','04_018-uVYTU.jpg','04_019-yleYJ.jpg','04_020-RNdXP.jpg','04_021-nuP6I.jpg','04_022-51m61.jpg','04_023-Fq0sf.jpg','04_024-6NNh8.jpg','04_025-nLesE.jpg','04_026-EGHZ9.jpg','04_027-CV5KG.jpg','04_028-zZAWq.jpg','04_029-vwWLk.jpg','04_030-Thkna.jpg','04_031-0XiL8.jpg','04_032-NFxPG.jpg','04_033-41Nv2.jpg','04_034-R0qRn.jpg','04_035-Majfu.jpg','04_036-4X3MO.jpg','04_037-U2ozJ.jpg','04_038-TolUS.jpg','04_039-e16y5.jpg','04_040-Bxcwq.jpg','04_041-dEVxV.jpg','04_042-6ws8F.jpg','04_043-UMMG4.jpg','04_044-RwHLw.jpg','04_045-yaPcr.jpg','04_046-YFGZt.jpg','04_047-Lxlit.jpg','04_048-qPKGf.jpg','04_049-k1utO.jpg','04_050-ezQgN.jpg','04_051-BIils.jpg','04_052-od9XF.jpg','04_053-LGNod.jpg','04_054-G8boL.jpg','04_055-ZYivo.jpg','04_056-wW5lO.jpg','04_057-PoVhR.jpg','04_058-3jXhX.jpg','04_059-UYKbX.jpg','04_060-R4mfD.jpg','04_061-8ZlQx.jpg','04_062-ydyxx.jpg','04_063-JeoiX.jpg','04_064-YrS00.jpg','04_065-NpcUR.jpg','04_066-7vxXm.jpg','04_067-i117x.jpg','04_068-hkHG7.jpg','04_069-38VLl.jpg','04_070-Ru1N8.jpg','04_071-4iF45.jpg','04_072-fxvD9.jpg','04_073-Glr53.jpg','04_074-bjWf4.jpg','04_075-7Jpj1.jpg','04_076-fl0WE.jpg','04_077-DvlN5.jpg','04_078-6viIH.jpg','04_079-RHKzU.jpg','04_080-tcxI8.jpg','04_081-3lyoy.jpg','04_082-k1jRh.jpg','04_083-ruN18.jpg','04_084-eYdwG.jpg','04_085-Rl9Qv.jpg','04_086-kDO3R.jpg','04_087-eplMB.jpg','04_088-YXfQF.jpg','04_089-ygHEu.jpg','04_090-x8s2d.jpg','04_091-OBqVQ.jpg','04_092-Zzuab.jpg','04_093-68ews.jpg','04_094-J2T7Y.jpg','04_095-emV8B.jpg','04_096-azcn5.jpg']
+
+
+var str="";
+let nums = 10;
+for(var i=0;i<10;i++){
+  str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
+}
+$("#items").append(str);
+
+$("#before").click(function(){
+  // $("#items").html("");
+  console.log(nums)
+  if(nums>10) {
+  nums = nums-20;
+  for(var i=nums;i<nums+10;i++){
+    str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
+  }
+  $("#items").html(str);
+  }
+});
+$("#after").click(function(){
+  // $("#items").html("");
+  console.log(nums)
+  if(nums<num.length) {
+  for(var i=nums;i<nums+10;i++){
+    str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
+  }
+  $("#items").html(str);
+  nums = nums+10;
+  }
+});
+  </script>
+</body>
+</html>
