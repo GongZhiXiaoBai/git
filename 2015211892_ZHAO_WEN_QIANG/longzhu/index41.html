@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>41</title>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <style>
-    img{
-      width: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="items">
-  </div>
-<div style="width:100%;display: flex;justify-content: space-between;">
-  <div id="before" style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">《《</div>
-  <div id="after" style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">》》</div>
-</div>
-  <script>
-    let juan = '41';
-    var num = ['41_001-SNZtJ.jpg','41_002-al74i.jpg','41_003-T6Y0k.jpg','41_004-LFQ3o.jpg','41_005-XpZf5.jpg','41_006-x0EE3.jpg','41_007-rnZcS.jpg','41_008-RVTMj.jpg','41_009-33wAn.jpg','41_010-aB8qy.jpg','41_011-URAqk.jpg','41_012-75vja.jpg','41_013-uwhnW.jpg','41_014-vm0fQ.jpg','41_015-7RklR.jpg','41_016-wmn8C.jpg','41_017-h21Gw.jpg','41_018-6jl1J.jpg','41_019-NZTd7.jpg','41_020-QWUNj.jpg','41_021-bxiaL.jpg','41_022-1hcq0.jpg','41_023-ga5cB.jpg','41_024-UH22R.jpg','41_025-8yWM9.jpg','41_026-hK0u3.jpg','41_027-iTFD7.jpg','41_028-EvlQ6.jpg','41_029-CZeLx.jpg','41_030-R6Lbo.jpg','41_031-4yxcT.jpg','41_032-V6wTA.jpg','41_033-uqCHM.jpg','41_034-UTHzZ.jpg','41_035-jzBZg.jpg','41_036-U9H9k.jpg','41_037-1AqS8.jpg','41_038-g2BHo.jpg','41_039-ekCUJ.jpg','41_040-Scgli.jpg','41_041-NvbBB.jpg','41_042-h0CNN.jpg','41_043-3oX24.jpg','41_044-LFLVf.jpg','41_045-uZs1m.jpg','41_046-hmn7N.jpg','41_047-ITPPA.jpg','41_048-yWMBV.jpg','41_049-8EoxJ.jpg','41_050-sXJIx.jpg','41_051-m41xC.jpg','41_052-XzeSq.jpg','41_053-nFBt9.jpg','41_054-iqwZ1.jpg','41_055-8QG6n.jpg','41_056-7GyUG.jpg','41_057-bTO1Z.jpg','41_058-qipqO.jpg','41_059-RsNgC.jpg','41_060-ZACiO.jpg','41_061-KcCVL.jpg','41_062-rtIKM.jpg','41_063-NbhZs.jpg','41_064-Sa9Zc.jpg','41_065-VXBJp.jpg','41_066-zPuMU.jpg','41_067-XBHa1.jpg','41_068-L2hiI.jpg','41_069-rHnI5.jpg','41_070-oaAlm.jpg','41_071-DaSxD.jpg','41_072-gdaft.jpg','41_073-bHqI1.jpg','41_074-nkYuG.jpg','41_075-fKMZo.jpg','41_076-kX2yr.jpg','41_077-umbEt.jpg','41_078-h9jkm.jpg','41_079-lZCPm.jpg','41_080-mSqmB.jpg','41_081-t5OHu.jpg','41_082-Y3yDN.jpg','41_083-Utx6s.jpg','41_084-uaN1q.jpg','41_085-ryZ5c.jpg','41_086-8FTx7.jpg','41_087-vj6LN.jpg','41_088-MLatW.jpg','41_089-9lJt5.jpg','41_090-8iBK6.jpg','41_091-Tlmi6.jpg','41_092-kTgV1.jpg','41_093-UPwIm.jpg','41_094-sapV9.jpg','41_095-g6mQb.jpg','41_096-wgGYn.jpg','41_097-o84Jp.jpg','41_098-gZOXN.jpg','41_099-tHRBb.jpg','41_100-tyhyL.jpg','41_101-SdXAt.jpg','41_102-icpNB.jpg','41_103-db4E2.jpg','41_104-Q1No8.jpg','41_105-1GMDX.jpg','41_106-5GeiI.jpg','41_107-lP3ez.jpg','41_108-20BTL.jpg','41_109-0obu2.jpg','41_110-myOcQ.jpg','41_111-6Txgy.jpg','41_112-ig6Gc.jpg','41_113-375ky.jpg','41_114-gw3Py.jpg','41_115-xWJb0.jpg','41_116-drk10.jpg','41_117-y3eKf.jpg','41_118-heVW8.jpg','41_119-h5Di5.jpg','41_120-LXugN.jpg','41_121-CPayX.jpg','41_122-hijLw.jpg','41_123-42IFs.jpg','41_124-OLmp1.jpg','41_125-Ki1y8.jpg','41_126-TMotI.jpg','41_127-9pTwZ.jpg','41_128-0c4yg.jpg','41_129-IPvNs.jpg','41_130-yQM0x.jpg','41_131-nTwgW.jpg','41_132-SZtSK.jpg','41_133-UVtxr.jpg','41_134-zUW6C.jpg','41_135-M3XXS.jpg','41_136-s4Krj.jpg','41_137-dcG38.jpg','41_138-tZMuY.jpg','41_139-KB5c0.jpg','41_140-UZk4N.jpg','41_141-k9UFU.jpg','41_142-zUttr.jpg','41_143-KBYF3.jpg','41_144-OzqB1.jpg','41_145-JJtzu.jpg','41_146-NucZz.jpg','41_147-MKatQ.jpg','41_148-9Ocyt.jpg','41_149-9rInd.jpg','41_150-CTIoi.jpg','41_151-CoDZl.jpg','41_152-TB63F.jpg','41_153-No4Ls.jpg','41_154-AXZNK.jpg','41_155-rW7ce.jpg','41_156-PE8R8.jpg','41_157-LmVbs.jpg','41_158-kRev8.jpg','41_159-RYwRF.jpg','41_160-2BC1j.jpg','41_161-L2p73.jpg','41_162-k8IQb.jpg','41_163-KGS4J.jpg','41_164-FMiIp.jpg','41_165-U3uVc.jpg','41_166-nw49P.jpg','41_167-i7XN1.jpg','41_168-uD2KO.jpg','41_169-d86b1.jpg','41_170-xicwf.jpg','41_171-M31aW.jpg','41_172-fzKd7.jpg','41_173-DCuZX.jpg','41_174-A0iaI.jpg','41_175-Pnrg9.jpg','41_176-iArPC.jpg','41_177-q1byI.jpg','41_178-VJgka.jpg','41_179-FGL1g.jpg','41_180-ybSOy.jpg','41_181-0RAFB.jpg','41_182-9SUtG.jpg','41_183-UgxfI.jpg','41_184-yRVMJ.jpg','41_185-TJlyf.jpg','41_186-Jfqk5.jpg','41_187-Bz7ab.jpg','41_188-xypSc.jpg','41_189-gJc1h.jpg','41_190-xouXo.jpg','41_191-utzVx.jpg','41_192-Lo5uc.jpg','41_193-0sKS0.jpg','41_194-pfhwo.jpg','41_195-w6yhG.jpg','41_196-gmiqw.jpg','41_197-4GHP0.jpg','41_198-AaF8x.jpg','41_199-1w39i.jpg','41_200-Mg2ld.jpg','41_201-xuQNu.jpg','41_202-zoolW.jpg','41_203-J7QjI.jpg','41_204-C6wUO.jpg','41_205-pHMAI.jpg','41_206-cwoCB.jpg','41_207-tJXPC.jpg','41_208-KnyLP.jpg','41_209-CaT0s.jpg','41_210-VMHEm.jpg','41_211-6wgOg.jpg','41_212-1x3m4.jpg','41_213-LmaEs.jpg','41_214-ziaxi.jpg','41_215-cuR8g.jpg','41_216-CgP5t.jpg','41_217-gDjWQ.jpg','41_218-fM4n2.jpg','41_219-3n4aj.jpg','41_220-p4F0A.jpg','41_221-nZ3mD.jpg','41_222-QlK6V.jpg','41_223-OOSjN.jpg','41_224-Wl4dT.jpg','41_225-sRoeY.jpg','41_226-vOPD1.jpg','41_227-8dpw8.jpg','41_228-mNJTU.jpg','41_229-rOzBJ.jpg','41_230-b195W.jpg','41_231-jIMEv.jpg','41_232-gU1tT.jpg','41_233-PnLCH.jpg','41_234-PeZyz.jpg','41_235-iPjHp.jpg']
-  
-var str="";
-let nums = 10;
-for(var i=0;i<10;i++){
-  str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
-}
-$("#items").append(str);str="";
 
-$("#before").click(function(){
-  // $("#items").html("");
-  console.log(nums)
-  if(nums>10) {
-  nums = nums-20;
-  for(var i=nums;i<nums+10;i++){
-    str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
-  }
-  $("#items").html(str);str="";
-  }
-});
-$("#after").click(function(){
-  // $("#items").html("");
-  console.log(nums)
-  if(nums<num.length) {
-  for(var i=nums;i<nums+10;i++){
-    str+=`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[i]}'/>`
-  }
-  $("#items").html(str);str="";
-  nums = nums+10;
-  }
-});
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="items">
+      <div style="width:100%;" id="one"></div>
+      <div style="width:100%;" id="two"></div>
+      <div style="width:100%;" id="three"></div>
+    </div>
+    <div style="width:100%;display: flex;justify-content: space-between;">
+      <div id="before"
+        style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">
+        《《</div>
+      <div id="after"
+        style="width: 50%;text-align:center;font-size: 32px;font-weight: 600;cursor: pointer;border: 1px solid red;">
+        》》</div>
+    </div>
+    <script>
+      let juan = '41';
+      var num = ['41_001-SNZtJ.jpg', '41_002-al74i.jpg', '41_003-T6Y0k.jpg', '41_004-LFQ3o.jpg', '41_005-XpZf5.jpg', '41_006-x0EE3.jpg', '41_007-rnZcS.jpg', '41_008-RVTMj.jpg', '41_009-33wAn.jpg', '41_010-aB8qy.jpg', '41_011-URAqk.jpg', '41_012-75vja.jpg', '41_013-uwhnW.jpg', '41_014-vm0fQ.jpg', '41_015-7RklR.jpg', '41_016-wmn8C.jpg', '41_017-h21Gw.jpg', '41_018-6jl1J.jpg', '41_019-NZTd7.jpg', '41_020-QWUNj.jpg', '41_021-bxiaL.jpg', '41_022-1hcq0.jpg', '41_023-ga5cB.jpg', '41_024-UH22R.jpg', '41_025-8yWM9.jpg', '41_026-hK0u3.jpg', '41_027-iTFD7.jpg', '41_028-EvlQ6.jpg', '41_029-CZeLx.jpg', '41_030-R6Lbo.jpg', '41_031-4yxcT.jpg', '41_032-V6wTA.jpg', '41_033-uqCHM.jpg', '41_034-UTHzZ.jpg', '41_035-jzBZg.jpg', '41_036-U9H9k.jpg', '41_037-1AqS8.jpg', '41_038-g2BHo.jpg', '41_039-ekCUJ.jpg', '41_040-Scgli.jpg', '41_041-NvbBB.jpg', '41_042-h0CNN.jpg', '41_043-3oX24.jpg', '41_044-LFLVf.jpg', '41_045-uZs1m.jpg', '41_046-hmn7N.jpg', '41_047-ITPPA.jpg', '41_048-yWMBV.jpg', '41_049-8EoxJ.jpg', '41_050-sXJIx.jpg', '41_051-m41xC.jpg', '41_052-XzeSq.jpg', '41_053-nFBt9.jpg', '41_054-iqwZ1.jpg', '41_055-8QG6n.jpg', '41_056-7GyUG.jpg', '41_057-bTO1Z.jpg', '41_058-qipqO.jpg', '41_059-RsNgC.jpg', '41_060-ZACiO.jpg', '41_061-KcCVL.jpg', '41_062-rtIKM.jpg', '41_063-NbhZs.jpg', '41_064-Sa9Zc.jpg', '41_065-VXBJp.jpg', '41_066-zPuMU.jpg', '41_067-XBHa1.jpg', '41_068-L2hiI.jpg', '41_069-rHnI5.jpg', '41_070-oaAlm.jpg', '41_071-DaSxD.jpg', '41_072-gdaft.jpg', '41_073-bHqI1.jpg', '41_074-nkYuG.jpg', '41_075-fKMZo.jpg', '41_076-kX2yr.jpg', '41_077-umbEt.jpg', '41_078-h9jkm.jpg', '41_079-lZCPm.jpg', '41_080-mSqmB.jpg', '41_081-t5OHu.jpg', '41_082-Y3yDN.jpg', '41_083-Utx6s.jpg', '41_084-uaN1q.jpg', '41_085-ryZ5c.jpg', '41_086-8FTx7.jpg', '41_087-vj6LN.jpg', '41_088-MLatW.jpg', '41_089-9lJt5.jpg', '41_090-8iBK6.jpg', '41_091-Tlmi6.jpg', '41_092-kTgV1.jpg', '41_093-UPwIm.jpg', '41_094-sapV9.jpg', '41_095-g6mQb.jpg', '41_096-wgGYn.jpg', '41_097-o84Jp.jpg', '41_098-gZOXN.jpg', '41_099-tHRBb.jpg', '41_100-tyhyL.jpg', '41_101-SdXAt.jpg', '41_102-icpNB.jpg', '41_103-db4E2.jpg', '41_104-Q1No8.jpg', '41_105-1GMDX.jpg', '41_106-5GeiI.jpg', '41_107-lP3ez.jpg', '41_108-20BTL.jpg', '41_109-0obu2.jpg', '41_110-myOcQ.jpg', '41_111-6Txgy.jpg', '41_112-ig6Gc.jpg', '41_113-375ky.jpg', '41_114-gw3Py.jpg', '41_115-xWJb0.jpg', '41_116-drk10.jpg', '41_117-y3eKf.jpg', '41_118-heVW8.jpg', '41_119-h5Di5.jpg', '41_120-LXugN.jpg', '41_121-CPayX.jpg', '41_122-hijLw.jpg', '41_123-42IFs.jpg', '41_124-OLmp1.jpg', '41_125-Ki1y8.jpg', '41_126-TMotI.jpg', '41_127-9pTwZ.jpg', '41_128-0c4yg.jpg', '41_129-IPvNs.jpg', '41_130-yQM0x.jpg', '41_131-nTwgW.jpg', '41_132-SZtSK.jpg', '41_133-UVtxr.jpg', '41_134-zUW6C.jpg', '41_135-M3XXS.jpg', '41_136-s4Krj.jpg', '41_137-dcG38.jpg', '41_138-tZMuY.jpg', '41_139-KB5c0.jpg', '41_140-UZk4N.jpg', '41_141-k9UFU.jpg', '41_142-zUttr.jpg', '41_143-KBYF3.jpg', '41_144-OzqB1.jpg', '41_145-JJtzu.jpg', '41_146-NucZz.jpg', '41_147-MKatQ.jpg', '41_148-9Ocyt.jpg', '41_149-9rInd.jpg', '41_150-CTIoi.jpg', '41_151-CoDZl.jpg', '41_152-TB63F.jpg', '41_153-No4Ls.jpg', '41_154-AXZNK.jpg', '41_155-rW7ce.jpg', '41_156-PE8R8.jpg', '41_157-LmVbs.jpg', '41_158-kRev8.jpg', '41_159-RYwRF.jpg', '41_160-2BC1j.jpg', '41_161-L2p73.jpg', '41_162-k8IQb.jpg', '41_163-KGS4J.jpg', '41_164-FMiIp.jpg', '41_165-U3uVc.jpg', '41_166-nw49P.jpg', '41_167-i7XN1.jpg', '41_168-uD2KO.jpg', '41_169-d86b1.jpg', '41_170-xicwf.jpg', '41_171-M31aW.jpg', '41_172-fzKd7.jpg', '41_173-DCuZX.jpg', '41_174-A0iaI.jpg', '41_175-Pnrg9.jpg', '41_176-iArPC.jpg', '41_177-q1byI.jpg', '41_178-VJgka.jpg', '41_179-FGL1g.jpg', '41_180-ybSOy.jpg', '41_181-0RAFB.jpg', '41_182-9SUtG.jpg', '41_183-UgxfI.jpg', '41_184-yRVMJ.jpg', '41_185-TJlyf.jpg', '41_186-Jfqk5.jpg', '41_187-Bz7ab.jpg', '41_188-xypSc.jpg', '41_189-gJc1h.jpg', '41_190-xouXo.jpg', '41_191-utzVx.jpg', '41_192-Lo5uc.jpg', '41_193-0sKS0.jpg', '41_194-pfhwo.jpg', '41_195-w6yhG.jpg', '41_196-gmiqw.jpg', '41_197-4GHP0.jpg', '41_198-AaF8x.jpg', '41_199-1w39i.jpg', '41_200-Mg2ld.jpg', '41_201-xuQNu.jpg', '41_202-zoolW.jpg', '41_203-J7QjI.jpg', '41_204-C6wUO.jpg', '41_205-pHMAI.jpg', '41_206-cwoCB.jpg', '41_207-tJXPC.jpg', '41_208-KnyLP.jpg', '41_209-CaT0s.jpg', '41_210-VMHEm.jpg', '41_211-6wgOg.jpg', '41_212-1x3m4.jpg', '41_213-LmaEs.jpg', '41_214-ziaxi.jpg', '41_215-cuR8g.jpg', '41_216-CgP5t.jpg', '41_217-gDjWQ.jpg', '41_218-fM4n2.jpg', '41_219-3n4aj.jpg', '41_220-p4F0A.jpg', '41_221-nZ3mD.jpg', '41_222-QlK6V.jpg', '41_223-OOSjN.jpg', '41_224-Wl4dT.jpg', '41_225-sRoeY.jpg', '41_226-vOPD1.jpg', '41_227-8dpw8.jpg', '41_228-mNJTU.jpg', '41_229-rOzBJ.jpg', '41_230-b195W.jpg', '41_231-jIMEv.jpg', '41_232-gU1tT.jpg', '41_233-PnLCH.jpg', '41_234-PeZyz.jpg', '41_235-iPjHp.jpg']
+
+      let nums = 1;
+      $("#one").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums]}'/>`);
+      $("#two").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums + 1]}'/>`);
+      $("#three").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums + 2]}'/>`);
+      $("#one").show()
+      $('#two').hide()
+      $('#three').hide()
+
+
+      $("#before").click(function () {
+        console.log('before', nums)
+        if (nums > 2) {
+          nums--;
+          $("#one").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums - 1]}'/>`);
+          $("#two").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums]}'/>`);
+          $("#three").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums + 1]}'/>`);
+          $("#one").hide()
+          $('#two').show()
+          $('#three').hide()
+
+        }
+      })
+      $("#after").click(function () {
+        nums++;
+        console.log('after', nums)
+        if (nums < num.length) {
+          $("#one").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums - 1]}'/>`);
+          $("#two").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums]}'/>`);
+          $("#three").html(`<img src='http://comic.dragonballcn.com/list/0.Dragon_Ball-buyao_daolian_ya/2.zh_tw/Vol_${juan}/${num[nums + 1]}'/>`);
+          $("#one").hide()
+          $('#two').show()
+          $('#three').hide()
+
+        }
+      });
+    </script>
+  </body>
+
 </html>
