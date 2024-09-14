@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD</title>
+</head>
+<style>
+    body {
+        /* overflow: hidden; */
+    }
+
+    div,
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    div.en-cn {
+        flex-flow: column;
+        /* margin-top: 80px; */
+        position: relative;
+    }
+
+    .fex {
+        position: absolute;
+        /* overflow: hidden; */
+        top: 5%;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        /* opacity: 0; */
+    }
+
+    .fex a {
+        position: absolute;
+    }
+
+    div.en {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        background-color: #fff;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: inline-block;
+    }
+
+    div.cn {
+        font-size: 18px;
+        font-weight: 700;
+        visibility: hidden;
+        color: #454545bd;
+        margin-bottom: 0px;
+        background-color: #fff;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: inline-block;
+    }
+
+    .green {
+        background-color: green;
+        width: 100px;
+        height: 60px;
+        margin-top: 0px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        -moz-user-select: none;
+        /*火狐*/
+        -webkit-user-select: none;
+        /*webkit浏览器*/
+        -ms-user-select: none;
+        /*IE10*/
+        -khtml-user-select: none;
+        /*早期浏览器*/
+        user-select: none;
+    }
+
+    .red {
+        background-color: red;
+        width: 100px;
+        height: 60px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        -moz-user-select: none;
+        /*火狐*/
+        -webkit-user-select: none;
+        /*webkit浏览器*/
+        -ms-user-select: none;
+        /*IE10*/
+        -khtml-user-select: none;
+        /*早期浏览器*/
+        user-select: none;
+    }
+
+    #nums {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .word-allbox {
+        justify-content: space-around;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        flex-flow: column;
+        border: 2px solid rgb(250, 182, 182);
+        padding-right: 10px;
+        padding-left: 10px;
+        min-width: 250px;
+        max-width: 250px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+    <div class="fex"></div>
+    <div class="en-cn">
+        <div class="word-allbox">
+        </div>
+        <div class="green" id="next">next</div>
+        <div id="nums"></div>
+    </div>
+    <script type="module">
+
+    // "make SB do:强硬的说法：让某人做",
+    // "ask SB to do:礼貌的说法： 叫某人做",
+        let pagewords = 48; // 一页展示数量
+        import { words1, words2, words3, words4 } from './wordsall.js'  // word file
+        // console.log(words1, words2)
+        let words =[]
+        words = [...words3,...words4]; // change wordlist
+        let wordlist = [];
+        let index = 0;
+        let show = false;
+        let noerror = [];
+        let oldnoerror = [];
+        let count = 0;
+        let toastcount = 1;
+        words.map(e => {
+            wordlist.push({
+                en: e.split(":")[0], // en=>cn
+                cn: e.split(":")[1],
+                // en: e.split(":")[1], // cn=>en
+                // cn: e.split(":")[0],
+                error: 0
+            })
+        })
+        let oldwords = JSON.parse(JSON.stringify(wordlist));
+        wordlist = shuffle(wordlist)
+
+        console.time('一轮结束')
+
+        function intersect(arr1, arr2) {
+            let set = new Set(arr1);
+            return arr2.filter(item => set.has(item));
+        }
+
+        function random(a, b) {
+            return Math.random() * (b - a) + a
+        }
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        function addDom() {
+            var create = document.querySelector('.fex');
+            for (var i = 0; i < 100; i++) {
+                // console.log(wordlist[i])
+                // if(wordlist[i])return
+                var a = document.createElement('a');
+                a.innerText = wordlist[i].en
+                a.style.color = getRandomColor();
+                a.style.fontSize = random(12, 42) + 'px'
+                a.style.fontWeight = '700'
+                a.style.top = random(0, 95) + "%"
+                a.style.left = random(0, 95) + "%"
+                a.style.transform = 'rotate(' + random(-50, 50) + 'deg)';
+                a.style.opacity = '0.3'
+                create.appendChild(a);
+            }
+
+        }
+
+
+        function addWorddom(num, show = pagewords) {
+            var create = document.querySelector('.word-allbox');
+            for (let i = 0; i < show; i++) {
+                var a = document.createElement('div');
+                a.className = 'box'
+                var b = document.createElement('div');
+                b.className = 'en'
+                b.innerText = wordlist[num - show + i].en;
+                b.title = wordlist[num - show + i].en;
+                var c = document.createElement('div');
+                c.className = 'cn'
+                c.innerText = wordlist[num - show + i].cn;
+                c.title = wordlist[num - show + i].cn;
+                a.appendChild(b);
+                a.appendChild(c);
+                create.appendChild(a);
+
+                document.getElementsByClassName('box')[i].addEventListener('click', (e) => {
+                    document.getElementsByClassName('box')[i].getElementsByClassName('cn')[0].style.visibility = 'visible'
+                });
+                document.getElementsByClassName('box')[i].addEventListener('dblclick', () => {
+                    // 处理双击事件
+                    document.getElementsByClassName('box')[i].getElementsByClassName('en')[0].style.backgroundColor = 'red'
+                    wordlist[num - show + i].error++;
+                });
+            }
+        }
+        // addWorddom(8)
+
+        function morenext() {
+            if (index > wordlist.length) {
+                alert('all over')
+                listslice(wordlist);
+                wordlist = shuffle(wordlist);
+                index = 0;
+            }
+            show = false;
+            index += pagewords;
+            let shows = index - wordlist.length > 0 ? pagewords - index + wordlist.length : pagewords;
+            let nums = index - wordlist.length > 0 ? wordlist.length : index;
+            document.getElementById('nums').innerHTML = nums + ' / ' + wordlist.length;
+            document.querySelector('.word-allbox').innerHTML = '';
+            // console.log(nums,shows)
+            if (nums < wordlist.length) {
+                addWorddom(nums, shows)
+            } else {
+                addWorddom(nums, shows)
+            }
+        }
+        morenext()
+        addDom()
+
+        function listslice(arr) {
+            if (toastcount == 2 && count == 0) {
+                if (noerror.length) oldnoerror = JSON.parse(JSON.stringify(noerror));
+                noerror = [];
+            } else if (toastcount > 2 && count == 0) {
+                if (noerror.length) oldnoerror = intersect(oldnoerror, noerror);
+                noerror = [];
+            }
+            let newarr = []
+            arr.map(e => {
+                if (e.error != count) {
+                    newarr.push(e);
+                } else {
+                    if (e.error == 0) {
+                        noerror.push(e)
+                    }
+                }
+            })
+            count++;
+            let errorlist = []
+            newarr.map(e => {
+                errorlist.push(
+                    "'" + e.en + ":" + e.cn + "'"
+                )
+            })
+            if (count == 1) {
+                let arr2 = [];
+                noerror.map(e => {
+                    arr2.push("'" + e.en + ":" + e.cn + "'")
+                })
+                noerror = JSON.parse(JSON.stringify(arr2));
+            }
+            console.log(`第${toastcount}轮，第${count}次错误:`, JSON.stringify(errorlist))
+            if (newarr.length == 0) {
+                console.log(`第${toastcount}轮无错数据:`, JSON.stringify(noerror))
+                console.timeEnd('一轮结束')
+                console.log(`每次无错数据合集:`, JSON.stringify(intersect(oldnoerror, noerror)))
+                count = 0;
+                // noerror = [];
+                toastcount++;
+                wordlist = oldwords;
+            } else {
+                wordlist = newarr;
+            }
+        }
+
+        document.getElementById('next').addEventListener('click', (e) => {
+            if (!show) {
+                show = true;
+                let divs = document.getElementsByClassName('cn');
+                for (let i = 0; i < divs.length; i++) {
+                    divs[i].style.visibility = 'visible'
+                }
+            } else {
+                morenext()
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.keyCode === 13) { // 判断是否是回车键
+                // 调用你想要执行的函数
+                if (!show) {
+                    show = true;
+                    let divs = document.getElementsByClassName('cn');
+                    for (let i = 0; i < divs.length; i++) {
+                        divs[i].style.visibility = 'visible'
+                    }
+                } else {
+                    morenext()
+                }
+            }
+        });
+
+
+
+
+        function shuffle(arr) {
+            var len = arr.length;
+            for (var i = 0; i < len - 1; i++) {
+                var idx = Math.floor(Math.random() * (len - i));
+                var temp = arr[idx];
+                arr[idx] = arr[len - i - 1];
+                arr[len - i - 1] = temp;
+            }
+            return arr;
+        }
+    </script>
+</body>
+
+</html>
